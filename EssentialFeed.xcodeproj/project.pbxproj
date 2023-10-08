@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC6B55542AD34512007DC711 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6B55532AD34512007DC711 /* XCTestCase+MemoryLeakTracking.swift */; };
 		BC7403F02ABF334400DDDD42 /* EssentialFeedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7403EF2ABF334400DDDD42 /* EssentialFeedApp.swift */; };
 		BC7403F22ABF334400DDDD42 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7403F12ABF334400DDDD42 /* ContentView.swift */; };
 		BC7403F42ABF334500DDDD42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC7403F32ABF334500DDDD42 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC6B55532AD34512007DC711 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		BC7403EC2ABF334400DDDD42 /* EssentialFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC7403EF2ABF334400DDDD42 /* EssentialFeedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedApp.swift; sourceTree = "<group>"; };
 		BC7403F12ABF334400DDDD42 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,6 +67,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC6B55522AD344DD007DC711 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BC6B55532AD34512007DC711 /* XCTestCase+MemoryLeakTracking.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		BC7403E32ABF334400DDDD42 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +145,7 @@
 		BC7404372AD20DB600DDDD42 /* Feed API */ = {
 			isa = PBXGroup;
 			children = (
+				BC6B55522AD344DD007DC711 /* Helpers */,
 				BC74041F2ABF34C800DDDD42 /* RemoteFeedLoaderTest.swift */,
 				BC74043A2AD2EBD000DDDD42 /* URLSessionHTTPClientTests.swift */,
 			);
@@ -257,6 +268,7 @@
 			files = (
 				BC7404202ABF34C800DDDD42 /* RemoteFeedLoaderTest.swift in Sources */,
 				BC74043B2AD2EBD000DDDD42 /* URLSessionHTTPClientTests.swift in Sources */,
+				BC6B55542AD34512007DC711 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
