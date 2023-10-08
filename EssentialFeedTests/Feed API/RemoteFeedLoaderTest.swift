@@ -34,7 +34,7 @@ class RemoteFeedLoaderTest: XCTestCase {
     func test_loadDeliversErrorOnClientError() {
         let (sut, client) = makeSut()
         
-        expect(sut, toCompleteWithError: .failure(RemoteFeedLoader.Error.connectivity), when: {
+        expect(sut, toCompleteWithError: failure(.connectivity), when: {
             let clientError = NSError(domain: "Test", code: 0)
             client.complete(with: clientError)
         })
@@ -46,7 +46,7 @@ class RemoteFeedLoaderTest: XCTestCase {
         let sampleErrorCodes = [199, 201, 300, 400, 500]
         
         sampleErrorCodes.enumerated().forEach { index, code in
-            expect(sut, toCompleteWithError: .failure(RemoteFeedLoader.Error.invalidData), when: {
+            expect(sut, toCompleteWithError: failure(.invalidData), when: {
                 let json = makeItemJson([])
                 client.complete(withStatusCode: code, data: json,at: index)
             })
@@ -56,7 +56,7 @@ class RemoteFeedLoaderTest: XCTestCase {
     func test_loadDeliversErrorOn200HttpResponseWithInvalidJson() {
         let (sut, client) = makeSut()
 
-        expect(sut, toCompleteWithError: .failure(RemoteFeedLoader.Error.invalidData), when: {
+        expect(sut, toCompleteWithError: failure(.invalidData), when: {
             let invalidJSON = Data("invalid json".utf8)
             client.complete(withStatusCode: 200, data: invalidJSON)
         })
@@ -65,7 +65,7 @@ class RemoteFeedLoaderTest: XCTestCase {
     func test_deliversNoItemsOn200HTTPResponseWithEmptyJSONList() {
         let (sut, client) = makeSut()
         
-        expect(sut, toCompleteWithError: .failure(RemoteFeedLoader.Error.invalidData), when: {
+        expect(sut, toCompleteWithError: failure(.invalidData), when: {
             let emptyListJSON = Data("{\"Items\": []}".utf8)
             client.complete(withStatusCode: 200, data: emptyListJSON)
         })
@@ -118,6 +118,10 @@ class RemoteFeedLoaderTest: XCTestCase {
                     "image": imageURL.absoluteString ].compactMapValues { $0 }
         
         return(item, json)
+    }
+    
+    private func failure(_ error: RemoteFeedLoader.Error) -> RemoteFeedLoader.Result {
+        return .failure(error)
     }
     
     private func expect(_ sut: RemoteFeedLoader, toCompleteWithError expectedResult: RemoteFeedLoader.Result, when action: ()-> Void, file: StaticString = #filePath, line: UInt = #line) {
