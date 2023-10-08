@@ -106,7 +106,7 @@
 		BC7404002ABF334500DDDD42 /* EssentialFeedTests */ = {
 			isa = PBXGroup;
 			children = (
-				BC74041F2ABF34C800DDDD42 /* RemoteFeedLoaderTest.swift */,
+				BC7404372AD20DB600DDDD42 /* Feed API */,
 			);
 			path = EssentialFeedTests;
 			sourceTree = "<group>";
@@ -128,6 +128,14 @@
 				BC7404342AD2016600DDDD42 /* FeedItemsMapper.swift */,
 			);
 			path = FeedAPI;
+			sourceTree = "<group>";
+		};
+		BC7404372AD20DB600DDDD42 /* Feed API */ = {
+			isa = PBXGroup;
+			children = (
+				BC74041F2ABF34C800DDDD42 /* RemoteFeedLoaderTest.swift */,
+			);
+			path = "Feed API";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
